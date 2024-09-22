@@ -1,6 +1,8 @@
 <template>
     <div>
-        <h2>{{ foodName }}</h2>
+        <h2>{{ foodName }}
+        <img src="/public/img_quality.svg" v-show="isFavorite">
+        </h2>
         <p>{{ foodDesc }}</p>
     </div>
     
@@ -10,14 +12,15 @@
     export default {
         props: [
             'foodName',
-            'foodDesc'
+            'foodDesc',
+            'isFavorite'
         ]
     }
 </script>
 
 <style>
-    #red {
-        font-weight: bold;
-        color: red;
-    }
+   img {
+    height: 1.5em;
+    float: right;
+   }
 </style>
