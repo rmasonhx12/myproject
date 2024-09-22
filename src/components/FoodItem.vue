@@ -1,18 +1,32 @@
 <template>
     <div>
         <h2>{{ foodName }}
-        <img src="/public/img_quality.svg" v-show="isFavorite">
+        <img src="/public/img_quality.svg" v-show="foodIsFavorite">
         </h2>
         <p>{{ foodDesc }}</p>
+        <button v-on:click="toggleFavorite">Favorite</button>
     </div>
     
 </template>
 
 <script>
     export default {
-       // props: ['foodName','foodDesc','isFavorite']
+       props: ['foodName','foodDesc','isFavorite'],
+       data() {
+        return {
+            foodIsFavorite: this.isFavorite
+       }
+    },
+
+    methods: {
+        toggleFavorite() {
+            this.foodIsFavorite = !this.foodIsFavorite;
+        }
+    }
+}
+       // change back to array
        // change define props as array to define as a object
-       props: {
+     /*   props: {
         foodName: {
             type: String,
             required: true
@@ -36,7 +50,7 @@
             default: false
         }
        }
-    }
+    } */
 </script>
 
 <style>
