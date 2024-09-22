@@ -20,8 +20,16 @@
         foodDesc:{
             type: String,
             required: false,
-            default: 'This is the default description'
-        },
+            default: 'This is the default description',
+            validator: function(value) {
+                if( 20<value.length && value.length<50) {
+                    return true;
+                } 
+                else {
+                    return false;
+                }
+        }
+    },
         isFavorite: { 
             type: Boolean,
             required: false,
